@@ -4,10 +4,10 @@ Rails.application.routes.draw do
 
   #uncomment to allow the index ./wlecome/index to allow vistors
   #otherwise vistors to the root directory will access this path by default
-  #get 'welcome/index'
+  get 'welcome/index'
   # HOMEPAGE
    root 'static_pages#home'
-  get 'static_pages/home'
+   get 'static_pages/home'
    get 'static_pages/help'
    get 'static_pages/about'
   # Example of regular route:
