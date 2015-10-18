@@ -2,13 +2,47 @@
 <html>
 <head>
   <title><%= full_title(yield(:title)) %></title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all',
+  'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+  <!-- Google font -->
+<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+
+  <!--[if lt IE 9]>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+</script>
+<![endif]-->
 </head>
 <body>
+  <header class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+      <%= link_to "My Canada", '#', id: "logo" %>
+      <nav>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "Home", root_path, id: "homelist" %></li>
+          <li><%= link_to "Help", help_path, id: "homelist" %></li>
+          <li><%= link_to "Log in", '#',id: "homelist" %></li>
+        </ul>
 
-<%= yield %>
-
+      </nav>
+    </div>
+  </header>
+  <div class="container">
+    <%= yield %>
+  </div>
 </body>
-</html>
+
+
+<footer class="footer">
+  <small>
+    The My Canada App is designed for CMPT 276@SFU</a>
+
+  </small>
+  <nav>
+    <ul>
+      <li><%= link_to "About", about_path, id: "aboutlist" %></li>
+    </ul>
+  </nav>
+</footer>

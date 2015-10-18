@@ -1,0 +1,123 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+/* universal */
+body {
+  padding-top: 35px;
+
+}
+section {
+  overflow: auto;
+}
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+
+}
+.center h1 {
+  margin-bottom: 15px;
+}
+
+#sign_button {
+  color: white;
+
+}
+/* typography */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.selected { color: red; }
+
+.navbar {
+  background-color:red;
+  background-image: none;
+  background-repeat: no-repeat;
+ }
+
+
+ /* header */
+ #homelist{
+   color: white;
+
+ }
+ #homelist:hover{
+   color: white;
+   font-weight: bold;
+ }
+ #logo {
+   font-family: 'Roboto';
+   float: left;
+   margin-right: 10px;
+   font-size: 2em;
+   color: #fff;
+   text-transform: uppercase;
+   letter-spacing: -1px;
+   padding-top: 15px;
+   font-weight: bold;
+
+ }
+ #logo:hover {
+   color: black;
+   text-decoration: none;
+   background-color: red
+ }
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: #777;
+}
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+
+/* footer */
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #777;
+}
+footer a {
+  color: #555;
+}
+footer a:hover {
+  color: black;
+}
+footer small {
+  float: left;
+  margin-left: 15px;
+}
+footer ul {
+  float: right;
+  list-style: none;
+}
+footer ul li {
+  float: left;
+  margin-left: 15px;
+}
+
+footer nav{
+  margin-right: 30px;
+}
+
+#aboutlist:hover {
+  color: white;
+  text-decoration: none;
+
+}
