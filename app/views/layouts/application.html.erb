@@ -30,12 +30,12 @@
             <font color="white">Open Data</font><b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              <li><%= link_to "Weather", current_user, id: "opendataList" %></li>
-              <li><%= link_to "Education", '#', id: "opendataList" %></li>
-              <li><%= link_to "Crime", current_user, id: "opendataList" %></li>
-              <li><%= link_to "Population", '#', id: "opendataList" %></li>
-              <li><%= link_to "Economic", current_user, id: "opendataList" %></li>
-              <li><%= link_to "Pollution", '#' , id: "opendataList"%></li>
+              <li><%= link_to "Weather", weather_path, id: "opendataList" %></li>
+              <li><%= link_to "Education", education_path, id: "opendataList" %></li>
+              <li><%= link_to "Crime", crime_path, id: "opendataList" %></li>
+              <li><%= link_to "Population", population_path, id: "opendataList" %></li>
+              <li><%= link_to "Economic", economic_path, id: "opendataList" %></li>
+              <li><%= link_to "Pollution", pollution_path , id: "opendataList"%></li>
             </ul>
           </li>
 

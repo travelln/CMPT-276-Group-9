@@ -7,4 +7,23 @@ class StaticPagesController < ApplicationController
 
   def about
   end
+
+  def crime
+  end
+
+  def economic
+  end
+
+  def education
+  end
+
+  def pollution
+  end
+
+  def population
+  end
+
+  def weather
+  end
+
 end

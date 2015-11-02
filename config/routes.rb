@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+
   get 'sessions/new'
 
   get 'users/new'
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -14,6 +17,13 @@ Rails.application.routes.draw do
 
    get 'help' => 'static_pages#help'
    get 'about' => 'static_pages#about'
+
+   get 'weather' => 'static_pages#weather'
+   get 'education' => 'static_pages#education'
+   get 'crime' => 'static_pages#crime'
+   get 'population' => 'static_pages#population'
+   get 'economic' => 'static_pages#economic'
+   get 'pollution' => 'static_pages#pollution'
 
    get 'signup' => 'users#new'
 
