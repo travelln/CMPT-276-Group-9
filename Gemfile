@@ -8,6 +8,7 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 
 gem 'lazy_high_charts'
 
+gem 'highcharts'
 
 # For designing layouts
 gem 'bootstrap-sass', '3.2.0.0'
