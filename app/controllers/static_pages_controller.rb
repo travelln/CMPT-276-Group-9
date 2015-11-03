@@ -26,4 +26,10 @@ class StaticPagesController < ApplicationController
   def weather
   end
 
+  def test
+
+
+
+  end
+
 end

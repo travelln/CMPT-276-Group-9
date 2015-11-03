@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+
+
   get 'sessions/new'
 
   get 'users/new'
@@ -24,6 +26,7 @@ Rails.application.routes.draw do
    get 'population' => 'static_pages#population'
    get 'economic' => 'static_pages#economic'
    get 'pollution' => 'static_pages#pollution'
+   get 'test' => 'static_pages#test'
 
    get 'signup' => 'users#new'
 

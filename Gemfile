@@ -6,6 +6,9 @@ gem 'rails', '4.2.4'
 
 gem 'bcrypt-ruby', '~> 3.1.2'
 
+gem 'lazy_high_charts'
+
+
 # For designing layouts
 gem 'bootstrap-sass', '3.2.0.0'
 # Use sqlite3 as the database for Active Record
@@ -14,6 +17,8 @@ group :production, :staging do
 end
 
 gem 'puma'
+
+gem 'haml'
 
 group :development, :test do
   gem "sqlite3-ruby", "~> 1.3.0", :require => "sqlite3"
