@@ -6,31 +6,31 @@
     <%= link_to 'My Canada', 'home' %>
     application.
   </p>
-  <div id='population1', style='width:680px; height:710px'>
+  <div id='population1', style='width:870px; height:710px'>
     <script>
     $(document).ready(function() {
       chart = new Highcharts.Chart({
         chart: {
           renderTo: 'population1',
-          type: 'area'
+          type: 'column'
         },
         title: {
           text: 'Population from 2011 to 2014'
         },
         subtitle: {
-          text: 'Source <a href=http://open.canada.ca/data/en/dataset/6bbe2840-38ec-446c-875a-a4ae30cfc006>' +
+          text: 'Source: <a href="http://open.canada.ca/data/en/dataset/6bbe2840-38ec-446c-875a-a4ae30cfc006">' +
             'Canada Open Data'
         },
         xAxis: {
           labels: {
             formatter: function() {
-              return this.value;
+              return this.value + 2011;
             }
           }
         },
         yAxis: {
           title: {
-            text: 'Population'
+            text: 'Population (Thousands)'
           },
           labels: {
             formatter: function() {
@@ -59,21 +59,108 @@
           }
         },
         series: [{
-          name: 'Nfld',
-          data: [47,85,56]
+          name: 'St. John\'s (N.L.)',
+          data: <%= @vec[4][1, 4] %>
         }, {
-          name: 'NS',
-          data: [98,34,64]
+          name: 'Halifax (N.S.)',
+          data: <%= @vec[5][1,4] %>
+        }, {
+          name: 'Moncton (N.B.)',
+          data: <%= @vec[6][1,4] %>
+        }, {
+          name: 'Saint John (N.B.)',
+          data: <%= @vec[7][1,4] %>
+        }, {
+          name: 'Saguenay (Que.)',
+          data: <%= @vec[8][1,4] %>
+        }, {
+          name: 'Quebec (Que.)',
+          data: <%= @vec[9][1,4] %>
+        }, {
+          name: 'Sherbrooke (Que.)',
+          data: <%= @vec[10][1,4] %>
+        }, {
+          name: 'Trois-Rivieres (Que.)',
+          data: <%= @vec[11][1,4] %>
+        }, {
+          name: 'Montreal (Que.)',
+          data: <%= @vec[12][1,4] %>
+        }, {
+          name: 'Ottawa-Gatineau (Ont.-Que.)',
+          data: <%= @vec[13][1,4] %>
+        }, {
+          name: 'Kingston (Ont.)',
+          data: <%= @vec[14][1,4] %>
+        }, {
+          name: 'Peterborough (Ont.)',
+          data: <%= @vec[15][1,4] %>
+        }, {
+          name: 'Oshawa (Ont.)',
+          data: <%= @vec[16][1,4] %>
+        }, {
+          name: 'Toronto (Ont.)',
+          data: <%= @vec[17][1,4] %>
+        }, {
+          name: 'Hamilton (Ont.)',
+          data: <%= @vec[18][1,4] %>
+        }, {
+          name: 'St. Catharines-Niagra (Ont.)',
+          data: <%= @vec[19][1,4] %>
+        }, {
+          name: 'Kitchener-Cambridge-Waterloo (Ont.)',
+          data: <%= @vec[20][1,4] %>
+        }, {
+          name: 'Brantford (Ont.)',
+          data: <%= @vec[21][1,4] %>
+        }, {
+          name: 'Guelph (Ont.)',
+          data: <%= @vec[22][1,4] %>
+        }, {
+          name: 'London (Ont.)',
+          data: <%= @vec[23][1,4] %>
+        }, {
+          name: 'Windsor (Ont.)',
+          data: <%= @vec[24][1,4] %>
+        }, {
+          name: 'Barrie (Ont.)',
+          data: <%= @vec[25][1,4] %>
+        }, {
+          name: 'Greater Sudbury (Ont.)',
+          data: <%= @vec[26][1,4] %>
+        }, {
+          name: 'Thunder Bay (Ont.)',
+          data: <%= @vec[27][1,4] %>
+        }, {
+          name: 'Winnipeg (Man.)',
+          data: <%= @vec[28][1,4] %>
+        }, {
+          name: 'Regina (Sask.)',
+          data: <%= @vec[29][1,4] %>
+        }, {
+          name: 'Saskatoon (Sask.)',
+          data: <%= @vec[30][1,4] %>
+        }, {
+          name: 'Calgary (Alta.)',
+          data: <%= @vec[31][1,4] %>
+        }, {
+          name: 'Edmonton (Alta.)',
+          data: <%= @vec[32][1,4] %>
+        }, {
+          name: 'Kelowna (B.C.)',
+          data: <%= @vec[33][1,4] %>
+        }, {
+          name: 'Abbotsford-Mission (B.C.)',
+          data: <%= @vec[34][1,4] %>
+        }, {
+          name: 'Vancouver (B.C.)',
+          data: <%= @vec[35][1,4] %>
+        }, {
+          name: 'Victoria (B.C.)',
+          data: <%= @vec[36][1,4] %>
         }]
       });
     });
     </script>
   </div>
-  <p>
-    Actual data below
-  </p>
-  <p>
-    <%= @vec %>
-  </p>
   </body>
 </html>
