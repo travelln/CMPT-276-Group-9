@@ -29,7 +29,11 @@ class StaticPagesController < ApplicationController
     CSV.foreach(csv_file, headers:true) do |row|
       @vec.push(Array.new)
       row.each do |key, val|
-        @vec[i] << val
+        if val.to_f == 0.0
+          @vec[i] << val
+        else
+          @vec[i] << val.delete(',').to_f
+        end
       end
       i += 1
     end
