@@ -27,6 +27,10 @@ class StaticPagesController < ApplicationController
   end
 
   def test
+    require 'csv'
+    tax_data = CSV.read('tax_data.csv', headers:true)
+
+
 
 
 
