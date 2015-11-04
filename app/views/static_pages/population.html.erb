@@ -1,10 +1,79 @@
 <% provide(:title, "Help") %>
 
-  <h1>My Canada App</h1>
+  <h1>Population</h1>
   <p>
     This is the population page for the
     <%= link_to 'My Canada', 'home' %>
     application.
+  </p>
+  <div id='population1', style='width:680px; height:710px'>
+    <script>
+    $(document).ready(function() {
+      chart = new Highcharts.Chart({
+        chart: {
+          renderTo: 'population1',
+          type: 'area'
+        },
+        title: {
+          text: 'Population from 2011 to 2014'
+        },
+        subtitle: {
+          text: 'Source <a href=http://open.canada.ca/data/en/dataset/6bbe2840-38ec-446c-875a-a4ae30cfc006>' +
+            'Canada Open Data'
+        },
+        xAxis: {
+          labels: {
+            formatter: function() {
+              return this.value;
+            }
+          }
+        },
+        yAxis: {
+          title: {
+            text: 'Population'
+          },
+          labels: {
+            formatter: function() {
+              return this.value;
+            }
+          }
+        },
+        tooltip: {
+          formatter: function() {
+            return this.series.name + ' had ' + this.y + ' in ' + this.x;
+          }
+        },
+        plotOptions: {
+          area: {
+            pointStart: 2011,
+            marker: {
+              enabled: false,
+              symbol: 'circle',
+              radius: 2,
+              states: {
+                hover: {
+                  enabled: true
+                }
+              }
+            }
+          }
+        },
+        series: [{
+          name: 'Nfld',
+          data: [47,85,56]
+        }, {
+          name: 'NS',
+          data: [98,34,64]
+        }]
+      });
+    });
+    </script>
+  </div>
+  <p>
+    Actual data below
+  </p>
+  <p>
+    <%= @vec %>
   </p>
   </body>
 </html>
