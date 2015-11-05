@@ -121,6 +121,13 @@
           categories: ['St.John\'s', 'Charlottetown', 'Halifax', 'Fredericton', 'Québec', 'Montréal', 'Ottawa', 'Toronto', 'Winnipeg', 'Regina', 'Edmonton', 'Calgary', 'Vancouver', 'Victoria', 'Whitehorse', 'Yellowknife']
         },
 
+        tooltip: {
+          formatter: function () {
+              return '<b>' + this.series.name + '</b><br/>' +
+                  this.x + ': ' + this.y + ' mm';
+                }
+        },
+
         series: [{
           name: 'Cities',
           data: [215.6, 184.2, 171.2, 156.6, 181.9, 163.3, 162.6, 145.5, 123.5, 114.5, 124.1, 113.6, 166.1, 154.2, 122.2, 118.9]
@@ -160,13 +167,13 @@
             tooltip: {
               formatter: function () {
                   return '<b>' + this.series.name + '</b><br/>' +
-                      this.x + ': ' + this.y;
+                      this.x + ': ' + this.y + ' days';
                     }
-                  },
-                  series: [{
-                    name: 'Cities',
-                    data: [215.6, 184.2, 171.2, 156.6, 181.9, 163.3, 162.6, 145.5, 123.5, 114.5, 124.1, 113.6, 166.1, 154.2, 122.2, 118.9]
-                  }]
+            },
+            series: [{
+              name: 'Cities',
+              data: [215.6, 184.2, 171.2, 156.6, 181.9, 163.3, 162.6, 145.5, 123.5, 114.5, 124.1, 113.6, 166.1, 154.2, 122.2, 118.9]
+            }]
           });
         });
     </script>
