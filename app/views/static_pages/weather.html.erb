@@ -1,10 +1,104 @@
-<% provide(:title, "Help") %>
+<% provide(:title, "Weather") %>
 
-  <h1>My Canada App</h1>
+  <h1>Weather</h1>
   <p>
     This is the weather page for the
     <%= link_to 'My Canada', 'home' %>
     application.
   </p>
+
+  <div id='weather1', style='width:870px; height:710px'>
+    <script>
+    $(document).ready(function() {
+      chart = new Highcharts.Chart({
+        chart: {
+          renderTo: "weather1",
+          type:'pie'
+        },
+        title: {
+          text: 'Total precipitation of capital and major cities'
+        },
+        subtitle: {
+          text: 'Source: <a href="http://open.canada.ca/data/en/dataset/81f6c8e6-ffee-4c20-8cbf-c06dc2b233e6">' +
+            'Canada Open Data'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series: [{
+            name: 'Total precipitation',
+            colorByPoint: true,
+            data: [{
+                name: 'St.John\'s',
+                y: 215.6/13655.4,
+            }, {
+                name: 'Charlottetown',
+                y: 1173.3/13655.4,
+            }, {
+                name: 'Halifax',
+                y: 1452.2/13655.4
+            }, {
+                name: 'Fredericton',
+                y: 1143.3/13655.4
+            }, {
+                name: 'Québec',
+                y: 1230.3/13655.4
+            }, {
+                name: 'Montréal',
+                y: 978.9/13655.4
+            }, {
+                name: 'Ottawa',
+                y: 943.5/13655.4
+            }, {
+                name: 'Toronto',
+                y: 792.7/13655.4
+            }, {
+                name: 'Winnipeg',
+                y: 513.7/13655.4
+            }, {
+                name: 'Regina',
+                y: 388.1/13655.4
+            }, {
+                name: 'Edmonton',
+                y: 482.7/13655.4
+            }, {
+                name: 'Calgary',
+                y: 412.6/13655.4
+            }, {
+                name: 'Vancouver',
+                y: 1199/13655.4
+            }, {
+                name: 'Victoria',
+                y: 883.3/13655.4
+            }, {
+                name: 'Whitehorse',
+                y: 267.4/13655.4
+            }, {
+                name: 'Yellowknife',
+                y: 118.9/13655.4
+            }]
+        }]
+
+
+
+      });
+    });
+    </script>
+  </div>
+
+
   </body>
 </html>
