@@ -6,16 +6,16 @@
     <%= link_to 'My Canada', 'home' %>
     application.
   </p>
-  <div id='population1', style='width:870px; height:710px'>
+  <div id='population', style='width:100%; height:710px'>
     <script>
     $(document).ready(function() {
       chart = new Highcharts.Chart({
         chart: {
-          renderTo: 'population1',
+          renderTo: 'population',
           type: 'column'
         },
         title: {
-          text: 'Population from 2011 to 2014'
+          text: 'Metropolitan Population from 2011 to 2014'
         },
         subtitle: {
           text: 'Source: <a href="http://open.canada.ca/data/en/dataset/6bbe2840-38ec-446c-875a-a4ae30cfc006">' +
@@ -163,16 +163,85 @@
     </script>
   </div>
 
-  <div id='population2', style='width:810px; height:710px'>
+  <div>
+  <div id='population1', class='left', style='width:50%; height:710px'>
+    <script>
+    $(document).ready(function() {
+      chart = new Highcharts.Chart({
+        chart: {
+          renderTo: 'population1',
+          type: 'line'
+        },
+        title: {
+          text: 'Metropolitan Population in the Atlantic Provinces'
+        },
+        subtitle: {
+          text: 'Source: <a href="http://open.canada.ca/data/en/dataset/6bbe2840-38ec-446c-875a-a4ae30cfc006">' +
+            'Canada Open Data'
+        },
+        xAxis: {
+          labels: {
+            enabled: false
+          }
+        },
+        yAxis: {
+          title: {
+            text: 'Population (Thousands)'
+          },
+          labels: {
+            formatter: function() {
+              return this.value;
+            }
+          }
+        },
+        tooltip: {
+          formatter: function() {
+            return this.series.name + ' had a population of ' + this.y + ' in ' + (this.x + 2011);
+          }
+        },
+        plotOptions: {
+          area: {
+            pointStart: 2011,
+            marker: {
+              enabled: false,
+              symbol: 'circle',
+              radius: 2,
+              states: {
+                hover: {
+                  enabled: true
+                }
+              }
+            }
+          }
+        },
+        series: [{
+          name: 'St. John\'s (N.L.)',
+          data: <%= @vec[4][1,4] %>
+        }, {
+          name: 'Halifax (N.S.)',
+          data: <%= @vec[5][1,4] %>
+        }, {
+          name: 'Moncton (N.B.)',
+          data: <%= @vec[6][1,4] %>
+        }, {
+          name: 'Saint John (N.B.)',
+          data: <%= @vec[7][1,4] %>
+        }]
+      });
+    });
+    </script>
+  </div>
+
+  <div id='population2', class='right', style='width:50%; height:710px'>
     <script>
     $(document).ready(function() {
       chart = new Highcharts.Chart({
         chart: {
           renderTo: 'population2',
-          type: 'column'
+          type: 'line'
         },
         title: {
-          text: 'Population in 2011'
+          text: 'Metropolitan Population in Quebec'
         },
         subtitle: {
           text: 'Source: <a href="http://open.canada.ca/data/en/dataset/6bbe2840-38ec-446c-875a-a4ae30cfc006">' +
@@ -195,7 +264,7 @@
         },
         tooltip: {
           formatter: function() {
-            return this.series.name + ' had a population of ' + this.y + ' in 2011';
+            return this.series.name + ' had a population of ' + this.y + ' in ' + (this.x + 2011);
           }
         },
         plotOptions: {
@@ -214,120 +283,41 @@
           }
         },
         series: [{
-          name: 'St. John\'s (N.L.)',
-          data: <%= @vec[4][1,1] %>
-        }, {
-          name: 'Halifax (N.S.)',
-          data: <%= @vec[5][1,1] %>
-        }, {
-          name: 'Moncton (N.B.)',
-          data: <%= @vec[6][1,1] %>
-        }, {
-          name: 'Saint John (N.B.)',
-          data: <%= @vec[7][1,1] %>
-        }, {
           name: 'Saguenay (Que.)',
-          data: <%= @vec[8][1,1] %>
+          data: <%= @vec[8][1,4] %>
         }, {
           name: 'Quebec (Que.)',
-          data: <%= @vec[9][1,1] %>
+          data: <%= @vec[9][1,4] %>
         }, {
           name: 'Sherbrooke (Que.)',
-          data: <%= @vec[10][1,1] %>
+          data: <%= @vec[10][1,4] %>
         }, {
           name: 'Trois-Rivieres (Que.)',
-          data: <%= @vec[11][1,1] %>
+          data: <%= @vec[11][1,4] %>
         }, {
           name: 'Montreal (Que.)',
-          data: <%= @vec[12][1,1] %>
+          data: <%= @vec[12][1,4] %>
         }, {
           name: 'Ottawa-Gatineau (Ont.-Que.)',
-          data: <%= @vec[13][1,1] %>
-        }, {
-          name: 'Kingston (Ont.)',
-          data: <%= @vec[14][1,1] %>
-        }, {
-          name: 'Peterborough (Ont.)',
-          data: <%= @vec[15][1,1] %>
-        }, {
-          name: 'Oshawa (Ont.)',
-          data: <%= @vec[16][1,1] %>
-        }, {
-          name: 'Toronto (Ont.)',
-          data: <%= @vec[17][1,1] %>
-        }, {
-          name: 'Hamilton (Ont.)',
-          data: <%= @vec[18][1,1] %>
-        }, {
-          name: 'St. Catharines-Niagra (Ont.)',
-          data: <%= @vec[19][1,1] %>
-        }, {
-          name: 'Kitchener-Cambridge-Waterloo (Ont.)',
-          data: <%= @vec[20][1,1] %>
-        }, {
-          name: 'Brantford (Ont.)',
-          data: <%= @vec[21][1,1] %>
-        }, {
-          name: 'Guelph (Ont.)',
-          data: <%= @vec[22][1,1] %>
-        }, {
-          name: 'London (Ont.)',
-          data: <%= @vec[23][1,1] %>
-        }, {
-          name: 'Windsor (Ont.)',
-          data: <%= @vec[24][1,1] %>
-        }, {
-          name: 'Barrie (Ont.)',
-          data: <%= @vec[25][1,1] %>
-        }, {
-          name: 'Greater Sudbury (Ont.)',
-          data: <%= @vec[26][1,1] %>
-        }, {
-          name: 'Thunder Bay (Ont.)',
-          data: <%= @vec[27][1,1] %>
-        }, {
-          name: 'Winnipeg (Man.)',
-          data: <%= @vec[28][1,1] %>
-        }, {
-          name: 'Regina (Sask.)',
-          data: <%= @vec[29][1,1] %>
-        }, {
-          name: 'Saskatoon (Sask.)',
-          data: <%= @vec[30][1,1] %>
-        }, {
-          name: 'Calgary (Alta.)',
-          data: <%= @vec[31][1,1] %>
-        }, {
-          name: 'Edmonton (Alta.)',
-          data: <%= @vec[32][1,1] %>
-        }, {
-          name: 'Kelowna (B.C.)',
-          data: <%= @vec[33][1,1] %>
-        }, {
-          name: 'Abbotsford-Mission (B.C.)',
-          data: <%= @vec[34][1,1] %>
-        }, {
-          name: 'Vancouver (B.C.)',
-          data: <%= @vec[35][1,1] %>
-        }, {
-          name: 'Victoria (B.C.)',
-          data: <%= @vec[36][1,1] %>
+          data: <%= @vec[13][1,4] %>
         }]
       });
     });
     </script>
   </div>
+  </div>
 
-  <div id='population3', style='width:810px; height:710px'>
+  <div>
+  <div id='population3', class='left', style='width:50%; height:710px'>
     <script>
     $(document).ready(function() {
       chart = new Highcharts.Chart({
         chart: {
           renderTo: 'population3',
-          type: 'column'
+          type: 'line'
         },
         title: {
-          text: 'Population in 2012'
+          text: 'Metropolitan Population in Ontario'
         },
         subtitle: {
           text: 'Source: <a href="http://open.canada.ca/data/en/dataset/6bbe2840-38ec-446c-875a-a4ae30cfc006">' +
@@ -350,7 +340,7 @@
         },
         tooltip: {
           formatter: function() {
-            return this.series.name + ' had a population of ' + this.y + ' in 2012';
+            return this.series.name + ' had a population of ' + this.y + ' in ' + (this.x + 2011);
           }
         },
         plotOptions: {
@@ -369,120 +359,66 @@
           }
         },
         series: [{
-          name: 'St. John\'s (N.L.)',
-          data: <%= @vec[4][2,1] %>
-        }, {
-          name: 'Halifax (N.S.)',
-          data: <%= @vec[5][2,1] %>
-        }, {
-          name: 'Moncton (N.B.)',
-          data: <%= @vec[6][2,1] %>
-        }, {
-          name: 'Saint John (N.B.)',
-          data: <%= @vec[7][2,1] %>
-        }, {
-          name: 'Saguenay (Que.)',
-          data: <%= @vec[8][2,1] %>
-        }, {
-          name: 'Quebec (Que.)',
-          data: <%= @vec[9][2,1] %>
-        }, {
-          name: 'Sherbrooke (Que.)',
-          data: <%= @vec[10][2,1] %>
-        }, {
-          name: 'Trois-Rivieres (Que.)',
-          data: <%= @vec[11][2,1] %>
-        }, {
-          name: 'Montreal (Que.)',
-          data: <%= @vec[12][2,1] %>
-        }, {
           name: 'Ottawa-Gatineau (Ont.-Que.)',
-          data: <%= @vec[13][2,1] %>
+          data: <%= @vec[13][1,4] %>
         }, {
           name: 'Kingston (Ont.)',
-          data: <%= @vec[14][2,1] %>
+          data: <%= @vec[14][1,4] %>
         }, {
           name: 'Peterborough (Ont.)',
-          data: <%= @vec[15][2,1] %>
+          data: <%= @vec[15][1,4] %>
         }, {
           name: 'Oshawa (Ont.)',
-          data: <%= @vec[16][2,1] %>
+          data: <%= @vec[16][1,4] %>
         }, {
           name: 'Toronto (Ont.)',
-          data: <%= @vec[17][2,1] %>
+          data: <%= @vec[17][1,4] %>
         }, {
           name: 'Hamilton (Ont.)',
-          data: <%= @vec[18][2,1] %>
+          data: <%= @vec[18][1,4] %>
         }, {
           name: 'St. Catharines-Niagra (Ont.)',
-          data: <%= @vec[19][2,1] %>
+          data: <%= @vec[19][1,4] %>
         }, {
           name: 'Kitchener-Cambridge-Waterloo (Ont.)',
-          data: <%= @vec[20][2,1] %>
+          data: <%= @vec[20][1,4] %>
         }, {
           name: 'Brantford (Ont.)',
-          data: <%= @vec[21][2,1] %>
+          data: <%= @vec[21][1,4] %>
         }, {
           name: 'Guelph (Ont.)',
-          data: <%= @vec[22][2,1] %>
+          data: <%= @vec[22][1,4] %>
         }, {
           name: 'London (Ont.)',
-          data: <%= @vec[23][2,1] %>
+          data: <%= @vec[23][1,4] %>
         }, {
           name: 'Windsor (Ont.)',
-          data: <%= @vec[24][2,1] %>
+          data: <%= @vec[24][1,4] %>
         }, {
           name: 'Barrie (Ont.)',
-          data: <%= @vec[25][2,1] %>
+          data: <%= @vec[25][1,4] %>
         }, {
           name: 'Greater Sudbury (Ont.)',
-          data: <%= @vec[26][2,1] %>
+          data: <%= @vec[26][1,4] %>
         }, {
           name: 'Thunder Bay (Ont.)',
-          data: <%= @vec[27][2,1] %>
-        }, {
-          name: 'Winnipeg (Man.)',
-          data: <%= @vec[28][2,1] %>
-        }, {
-          name: 'Regina (Sask.)',
-          data: <%= @vec[29][2,1] %>
-        }, {
-          name: 'Saskatoon (Sask.)',
-          data: <%= @vec[30][2,1] %>
-        }, {
-          name: 'Calgary (Alta.)',
-          data: <%= @vec[31][2,1] %>
-        }, {
-          name: 'Edmonton (Alta.)',
-          data: <%= @vec[32][2,1] %>
-        }, {
-          name: 'Kelowna (B.C.)',
-          data: <%= @vec[33][2,1] %>
-        }, {
-          name: 'Abbotsford-Mission (B.C.)',
-          data: <%= @vec[34][2,1] %>
-        }, {
-          name: 'Vancouver (B.C.)',
-          data: <%= @vec[35][2,1] %>
-        }, {
-          name: 'Victoria (B.C.)',
-          data: <%= @vec[36][2,1] %>
+          data: <%= @vec[27][1,4] %>
         }]
       });
     });
     </script>
   </div>
 
-  <div id='population4', style='width:870px; height:710px'>
+  <div id='population4', class='right', style='width:50%; height:710px'>
     <script>
     $(document).ready(function() {
       chart = new Highcharts.Chart({
         chart: {
           renderTo: 'population4',
-          type: 'column'
+          type: 'line'
         },
         title: {
-          text: 'Population in 2013'
+          text: 'Metropolitan Population in Western Canada'
         },
         subtitle: {
           text: 'Source: <a href="http://open.canada.ca/data/en/dataset/6bbe2840-38ec-446c-875a-a4ae30cfc006">' +
@@ -505,7 +441,7 @@
         },
         tooltip: {
           formatter: function() {
-            return this.series.name + ' had a population of ' + this.y + ' in 2013';
+            return this.series.name + ' had a population of ' + this.y + ' in ' + (this.x + 2011);
           }
         },
         plotOptions: {
@@ -524,263 +460,37 @@
           }
         },
         series: [{
-          name: 'St. John\'s (N.L.)',
-          data: <%= @vec[4][3,1] %>
-        }, {
-          name: 'Halifax (N.S.)',
-          data: <%= @vec[5][3,1] %>
-        }, {
-          name: 'Moncton (N.B.)',
-          data: <%= @vec[6][3,1] %>
-        }, {
-          name: 'Saint John (N.B.)',
-          data: <%= @vec[7][3,1] %>
-        }, {
-          name: 'Saguenay (Que.)',
-          data: <%= @vec[8][3,1] %>
-        }, {
-          name: 'Quebec (Que.)',
-          data: <%= @vec[9][3,1] %>
-        }, {
-          name: 'Sherbrooke (Que.)',
-          data: <%= @vec[10][3,1] %>
-        }, {
-          name: 'Trois-Rivieres (Que.)',
-          data: <%= @vec[11][3,1] %>
-        }, {
-          name: 'Montreal (Que.)',
-          data: <%= @vec[12][3,1] %>
-        }, {
-          name: 'Ottawa-Gatineau (Ont.-Que.)',
-          data: <%= @vec[13][3,1] %>
-        }, {
-          name: 'Kingston (Ont.)',
-          data: <%= @vec[14][3,1] %>
-        }, {
-          name: 'Peterborough (Ont.)',
-          data: <%= @vec[15][3,1] %>
-        }, {
-          name: 'Oshawa (Ont.)',
-          data: <%= @vec[16][3,1] %>
-        }, {
-          name: 'Toronto (Ont.)',
-          data: <%= @vec[17][3,1] %>
-        }, {
-          name: 'Hamilton (Ont.)',
-          data: <%= @vec[18][3,1] %>
-        }, {
-          name: 'St. Catharines-Niagra (Ont.)',
-          data: <%= @vec[19][3,1] %>
-        }, {
-          name: 'Kitchener-Cambridge-Waterloo (Ont.)',
-          data: <%= @vec[20][3,1] %>
-        }, {
-          name: 'Brantford (Ont.)',
-          data: <%= @vec[21][3,1] %>
-        }, {
-          name: 'Guelph (Ont.)',
-          data: <%= @vec[22][3,1] %>
-        }, {
-          name: 'London (Ont.)',
-          data: <%= @vec[23][3,1] %>
-        }, {
-          name: 'Windsor (Ont.)',
-          data: <%= @vec[24][3,1] %>
-        }, {
-          name: 'Barrie (Ont.)',
-          data: <%= @vec[25][3,1] %>
-        }, {
-          name: 'Greater Sudbury (Ont.)',
-          data: <%= @vec[26][3,1] %>
-        }, {
-          name: 'Thunder Bay (Ont.)',
-          data: <%= @vec[27][3,1] %>
-        }, {
           name: 'Winnipeg (Man.)',
-          data: <%= @vec[28][3,1] %>
+          data: <%= @vec[28][1,4] %>
         }, {
           name: 'Regina (Sask.)',
-          data: <%= @vec[29][3,1] %>
+          data: <%= @vec[29][1,4] %>
         }, {
           name: 'Saskatoon (Sask.)',
-          data: <%= @vec[30][3,1] %>
+          data: <%= @vec[30][1,4] %>
         }, {
           name: 'Calgary (Alta.)',
-          data: <%= @vec[31][3,1] %>
+          data: <%= @vec[31][1,4] %>
         }, {
           name: 'Edmonton (Alta.)',
-          data: <%= @vec[32][3,1] %>
+          data: <%= @vec[32][1,4] %>
         }, {
           name: 'Kelowna (B.C.)',
-          data: <%= @vec[33][3,1] %>
+          data: <%= @vec[33][1,4] %>
         }, {
           name: 'Abbotsford-Mission (B.C.)',
-          data: <%= @vec[34][3,1] %>
+          data: <%= @vec[34][1,4] %>
         }, {
           name: 'Vancouver (B.C.)',
-          data: <%= @vec[35][3,1] %>
+          data: <%= @vec[35][1,4] %>
         }, {
           name: 'Victoria (B.C.)',
-          data: <%= @vec[36][3,1] %>
+          data: <%= @vec[36][1,4] %>
         }]
       });
     });
     </script>
   </div>
-
-  <div id='population5', style='width:870px; height:710px'>
-    <script>
-    $(document).ready(function() {
-      chart = new Highcharts.Chart({
-        chart: {
-          renderTo: 'population5',
-          type: 'column'
-        },
-        title: {
-          text: 'Population in 2014'
-        },
-        subtitle: {
-          text: 'Source: <a href="http://open.canada.ca/data/en/dataset/6bbe2840-38ec-446c-875a-a4ae30cfc006">' +
-            'Canada Open Data'
-        },
-        xAxis: {
-          labels: {
-            enabled: false
-          }
-        },
-        yAxis: {
-          title: {
-            text: 'Population (Thousands)'
-          },
-          labels: {
-            formatter: function() {
-              return this.value;
-            }
-          }
-        },
-        tooltip: {
-          formatter: function() {
-            return this.series.name + ' had a population of ' + this.y + ' in 2014';
-          }
-        },
-        plotOptions: {
-          area: {
-            pointStart: 2011,
-            marker: {
-              enabled: false,
-              symbol: 'circle',
-              radius: 2,
-              states: {
-                hover: {
-                  enabled: true
-                }
-              }
-            }
-          }
-        },
-        series: [{
-          name: 'St. John\'s (N.L.)',
-          data: <%= @vec[4][4,1] %>
-        }, {
-          name: 'Halifax (N.S.)',
-          data: <%= @vec[5][4,1] %>
-        }, {
-          name: 'Moncton (N.B.)',
-          data: <%= @vec[6][4,1] %>
-        }, {
-          name: 'Saint John (N.B.)',
-          data: <%= @vec[7][4,1] %>
-        }, {
-          name: 'Saguenay (Que.)',
-          data: <%= @vec[8][4,1] %>
-        }, {
-          name: 'Quebec (Que.)',
-          data: <%= @vec[9][4,1] %>
-        }, {
-          name: 'Sherbrooke (Que.)',
-          data: <%= @vec[10][4,1] %>
-        }, {
-          name: 'Trois-Rivieres (Que.)',
-          data: <%= @vec[11][4,1] %>
-        }, {
-          name: 'Montreal (Que.)',
-          data: <%= @vec[12][4,1] %>
-        }, {
-          name: 'Ottawa-Gatineau (Ont.-Que.)',
-          data: <%= @vec[13][4,1] %>
-        }, {
-          name: 'Kingston (Ont.)',
-          data: <%= @vec[14][4,1] %>
-        }, {
-          name: 'Peterborough (Ont.)',
-          data: <%= @vec[15][4,1] %>
-        }, {
-          name: 'Oshawa (Ont.)',
-          data: <%= @vec[16][4,1] %>
-        }, {
-          name: 'Toronto (Ont.)',
-          data: <%= @vec[17][4,1] %>
-        }, {
-          name: 'Hamilton (Ont.)',
-          data: <%= @vec[18][4,1] %>
-        }, {
-          name: 'St. Catharines-Niagra (Ont.)',
-          data: <%= @vec[19][4,1] %>
-        }, {
-          name: 'Kitchener-Cambridge-Waterloo (Ont.)',
-          data: <%= @vec[20][4,1] %>
-        }, {
-          name: 'Brantford (Ont.)',
-          data: <%= @vec[21][4,1] %>
-        }, {
-          name: 'Guelph (Ont.)',
-          data: <%= @vec[22][4,1] %>
-        }, {
-          name: 'London (Ont.)',
-          data: <%= @vec[23][4,1] %>
-        }, {
-          name: 'Windsor (Ont.)',
-          data: <%= @vec[24][4,1] %>
-        }, {
-          name: 'Barrie (Ont.)',
-          data: <%= @vec[25][4,1] %>
-        }, {
-          name: 'Greater Sudbury (Ont.)',
-          data: <%= @vec[26][4,1] %>
-        }, {
-          name: 'Thunder Bay (Ont.)',
-          data: <%= @vec[27][4,1] %>
-        }, {
-          name: 'Winnipeg (Man.)',
-          data: <%= @vec[28][4,1] %>
-        }, {
-          name: 'Regina (Sask.)',
-          data: <%= @vec[29][4,1] %>
-        }, {
-          name: 'Saskatoon (Sask.)',
-          data: <%= @vec[30][4,1] %>
-        }, {
-          name: 'Calgary (Alta.)',
-          data: <%= @vec[31][4,1] %>
-        }, {
-          name: 'Edmonton (Alta.)',
-          data: <%= @vec[32][4,1] %>
-        }, {
-          name: 'Kelowna (B.C.)',
-          data: <%= @vec[33][4,1] %>
-        }, {
-          name: 'Abbotsford-Mission (B.C.)',
-          data: <%= @vec[34][4,1] %>
-        }, {
-          name: 'Vancouver (B.C.)',
-          data: <%= @vec[35][4,1] %>
-        }, {
-          name: 'Victoria (B.C.)',
-          data: <%= @vec[36][4,1] %>
-        }]
-      });
-    });
-    </script>
   </div>
   </body>
 </html>
