@@ -1,4 +1,4 @@
-<% provide(:title, "Help") %>
+<% provide(:title, "Pollution") %>
 
   <h1>My Canada App</h1>
   <p>
@@ -6,5 +6,74 @@
     <%= link_to 'My Canada', 'home' %>
     application.
   </p>
+  <div id='pollution', style='width:100%;height:710px'>
+    <script>
+    $(document).ready(function() {
+      chart = new Highcharts.Chart({
+        chart: {
+          renderTo: 'pollution',
+          type: 'line'
+        },
+        title: {
+          text: 'Air Pollutant Emissions'
+        },
+        subtitle: {
+          text: 'Source <a href="http://open.canada.ca/data/en/dataset/1e2c854b-8a95-43dd-b0af-4c0bf56d8a69">' +
+            'Canada Open Data'
+        },
+        xAxis: {
+          labels: {
+            formatter: function() {
+              return this.value + 1990;
+            }
+          }
+        },
+        yAxis: {
+          title: {
+            text: 'Percentage Difference From 1990 Levels'
+          },
+          labels: {
+            formatter: function() {
+              return this.value;
+            }
+          }
+        },
+        tooltip: {
+          formatter: function() {
+            return this.series.name + ' emmission levels were ' + this.y +'% of their 1990 levels in ' + (this.x + 1990);
+          }
+        },
+        plotOptions: {
+          area: {
+            pointStart: 1990,
+            marker: {
+              symbol: 'circle',
+              radius: 2
+            }
+          }
+        },
+        series: [{
+          name: 'Sulfur Oxide',
+          data: <%= @sulfur %>
+        }, {
+          name: 'Nitrogen Oxide',
+          data: <%= @nitrogen %>
+        }, {
+          name: 'Volatile Organic Compounds',
+          data: <%= @voc %>
+        }, {
+          name: 'Ammonia',
+          data: <%= @ammonia %>
+        }, {
+          name: 'Carbon Monoxide',
+          data: <%= @carbon %>
+        }, {
+          name: 'Fine Particulate Matter',
+          data: <%= @fpm %>
+        }]
+      })
+    })
+    </script>
+  </div>
   </body>
 </html>
