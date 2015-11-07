@@ -1,10 +1,266 @@
-<% provide(:title, "Help") %>
+<h1>Crime</h1>
 
-  <h1>My Canada App</h1>
-  <p>
-    This is the crime page for the
-    <%= link_to 'My Canada', 'home' %>
-    application.
-  </p>
-  </body>
-</html>
+<div id='crime1', style='width:1080px; height:720px'>
+  <script>
+  $(document).ready(function() {chart = new Highcharts.Chart({
+            chart:
+            {
+              renderTo: 'crime1',
+              type: 'bar'
+            },
+            title:
+            {
+              text: 'Actual offences,by provinces, Canada, 2000'
+            },
+            subtitle:
+            {
+              text: 'Source: <a href="http://open.canada.ca/data/en/dataset/03cf7d5a-f524-4af6-84f4-221a69bc71cb">' +
+                'Canada Open Data'
+            },
+            xAxis:
+            {
+              categories:
+              [             'Newfoundland and Labrador',
+                            'Prince Edward Island',
+                            'Nova Scotia',
+                            'New Brunswick',
+                            'Quebec',
+                            'Ontario',
+                            'Manitoba',
+                            'Saskatchewan',
+                            'Alberta',
+                            'British Columbia',
+                            'Yukon',
+                            'Northwest Territories',
+                            'Nunavut',
+              ]
+            },
+            tooltip:
+            {
+              formatter: function ()
+              {return  this.x + ': ' + this.y +' offences';}
+            },
+            series:
+            [{
+                name: 'Actual offences,by provinces, Canada, 2000',
+                <% temp = Array.new %>
+                <% for i in 0..(ENV['TIMES'] ? ENV['TIMES'].to_i : 13269) do %>
+                  <% if @vec3[i][0]==2000 && @vec3[i][2]=='All offences, total' && @vec3[i][1]!='Canada'  %>
+                    <% temp.push(@vec3[i][5])             %>
+                  <% end %>
+                <% end %>
+                data: <%= temp %>
+            }]
+
+  });});
+  </script>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div id='crime2', style='width:1080px; height:720px'>
+  <script>
+  $(document).ready(function() {chart = new Highcharts.Chart({
+            chart:
+            {
+              renderTo: "crime2",
+              type:'pie'
+            },
+            title:
+            {
+              text: 'Actual offences,by types, Canada, 2000'
+            },
+            subtitle:
+            {
+              text: 'Source: <a href="http://open.canada.ca/data/en/dataset/03cf7d5a-f524-4af6-84f4-221a69bc71cb">' +
+                'Canada Open Data'
+            },
+            tooltip:
+            {
+                pointFormat: '{point.y:.1f} cases happen in year 2000.'
+            },
+            series:
+            [{
+                colorByPoint: true,
+                data:
+                [
+                  {
+                    name: 'Crimes of violence',
+                    y: <%= @vec3[116][5] %>
+                }, {
+                    name: 'Murder',
+                    y: <%= @vec3[155][5] %>
+                }, {
+                    name: 'Attempted murder',
+                    y: <%= @vec3[194][5] %>
+                }, {
+                    name: 'Manslaughter',
+                    y: <%= @vec3[233][5] %>
+                }, {
+                    name: 'Robbery',
+                    y: <%= @vec3[272][5] %>
+                }, {
+                    name: 'Other violent crimes',
+                    y: <%= @vec3[311][5] %>
+                }, {
+                    name: 'Sexual assault',
+                    y: <%= @vec3[329][5] %>
+                }, {
+                    name: 'Aggravated sexual assault',
+                    y: <%= @vec3[347][5] %>
+                }, {
+                    name: 'Sexual assault with a weapon, bodily harm',
+                    y: <%= @vec3[365][5] %>
+                }, {
+                    name: 'Sexual assault, level 1',
+                    y: <%= @vec3[383][5] %>
+                }, {
+                    name: 'Assault',
+                    y: <%= @vec3[401][5] %>
+                }, {
+                    name: 'Assault, level 1',
+                    y: <%= @vec3[419][5] %>
+                }, {
+                    name: 'Assault with weapon, bodily harm',
+                    y: <%= @vec3[437][5] %>
+                }, {
+                    name: 'Aggravated assault',
+                    y: <%= @vec3[455][5] %>
+                }, {
+                    name: 'Other violent crimes, not elsewhere specified',
+                    y: <%= @vec3[473][5] %>
+                }, {
+                    name: 'Property crimes',
+                    y: <%= @vec3[512][5] %>
+                }, {
+                    name: 'Breaking and entering',
+                    y: <%= @vec3[551][5] %>
+                }, {
+                    name: 'Theft, motor vehicle',
+                    y: <%= @vec3[590][5] %>
+                }, {
+                    name: 'Theft, over and under',
+                    y: <%= @vec3[629][5] %>
+                }, {
+                    name: 'Have stolen goods',
+                    y: <%= @vec3[668][5] %>
+                }, {
+                    name: 'Frauds',
+                    y: <%= @vec3[707][5] %>
+                }, {
+                    name: 'Other crimes',
+                    y: <%= @vec3[746][5] %>
+                }, {
+                    name: 'Prostitution',
+                    y: <%= @vec3[785][5] %>
+                }, {
+                    name: 'Gaming and betting',
+                    y: <%= @vec3[824][5] %>
+                }, {
+                    name: 'Offensive weapons',
+                    y: <%= @vec3[863][5] %>
+                }
+                ]
+            }]
+
+
+
+  });});
+  </script>
+</div>
+
+
+
+
+
+
+
+
+<div id="crime3", style="width:1080px; height:720px">
+<script>
+    $(document).ready(function() {chart = new Highcharts.Chart({
+                chart:
+                {
+                    renderTo: 'crime3',
+                },
+                title:
+                {
+                    text: 'Number of police in Canada from 1986 - 2014'
+                },
+                subtitle:
+                {
+                    text: 'Source: <a href="http://open.canada.ca/data/en/dataset/6b8f7f93-fdf7-49c2-87a3-77e5046a6fbd">' +
+                      'Canada Open Data'
+                },
+                xAxis:
+                {
+                    labels: {
+                        formatter: function() {
+                            return this.value + 1986 ; // clean, unformatted number for year
+                        }
+                    }
+                },
+                yAxis: {
+                    title: {
+                        text: 'Number of people'
+                    },
+                    labels: {
+                        formatter: function() {
+                            return this.value / 1000 + 'k';
+                        }
+                    }
+                },
+                tooltip: {
+                    formatter: function() {
+                      return this.series.name   + ' in ' + (this.x + 1986) + ' is ' + this.y;
+
+                    }
+                },
+
+                series: [
+
+                {
+                        name: 'Total number of all personnel',
+                        <% temp = Array.new %>
+                        <% for i in 0..(ENV['TIMES'] ? ENV['TIMES'].to_i : 28) do %>
+                        <% temp.push(@vec[i][5])             %>
+                        <% end %>
+                        data: <%= temp %>
+                },
+                {
+                        name: 'Total number of police officers',
+                        <% temp = Array.new %>
+                        <% for i in 29..(ENV['TIMES'] ? ENV['TIMES'].to_i : 57) do %>
+                        <% temp.push(@vec[i][5])             %>
+                        <% end %>
+                        data: <%= temp %>
+                },
+                {
+                        name: 'Total number of civilian and other personnel',
+                        <% temp = Array.new %>
+                        <% for i in 116..(ENV['TIMES'] ? ENV['TIMES'].to_i : 144) do %>
+                        <% temp.push(@vec[i][5])             %>
+                        <% end %>
+                        data: <%= temp %>
+                },
+                {
+                        name: 'Total number of Authorized police officer strength',
+                        <% temp = Array.new %>
+                        <% for i in 228..(ENV['TIMES'] ? ENV['TIMES'].to_i : 255) do %>
+                        <% temp.push(@vec[i][5])             %>
+                        <% end %>
+                        data: <%= temp %>
+                }
+
+                ]
+      });});
+</script>
+</div>
+

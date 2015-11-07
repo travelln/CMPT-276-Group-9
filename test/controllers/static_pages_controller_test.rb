@@ -19,4 +19,10 @@ class StaticPagesControllerTest < ActionController::TestCase
     assert_select "title", "About | My Canada App"
   end
 
+  test "should get population" do
+    get :population
+    assert_response :success
+    assert_select "title", "Population | My Canada App"
+  end
+
 end
