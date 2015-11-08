@@ -1,4 +1,4 @@
-<% provide(:title, "Help") %>
+<% provide(:title, "Economic") %>
 
   <h1>My Canada App</h1>
   <p>
@@ -6,5 +6,265 @@
     <%= link_to 'My Canada', 'home' %>
     application.
   </p>
+  <div>
+    <div id='econ1', class='left'>
+      <script>
+      $(document).ready(function() {
+        chart = new Highcharts.Chart({
+          chart: {
+            renderTo: 'econ1',
+            type: 'line'
+          },
+          title: {
+            text: 'Families Compared to Unattached Individuals'
+          },
+          subtitle: {
+            text: 'Source: <a href="http://open.canada.ca/data/en/dataset/5a0df591-72ca-4ad2-8e29-bda54f248b57">' +
+              'Canada Open Data'
+          },
+          xAxis: {
+            allowDecimals: false,
+            labels: {
+              formatter: function() {
+                return this.value + 2007;
+              }
+            }
+          },
+          yAxis: {
+            title: {
+              text: '2011 Canadian Dollars'
+            },
+            labels: {
+              formatter: function() {
+                return this.value;
+              }
+            }
+          },
+          tooltip: {
+            formatter: function() {
+              return this.series.name + ' earned $' + this.y + ' in ' + (this.x + 2007);
+            }
+          },
+          plotOptions: {
+            area: {
+              pointStart: 2007,
+              marker: {
+                enabled: false,
+                symbol: 'circle',
+                radius: 2,
+                states: {
+                  hover: {
+                    enabled: true
+                  }
+                }
+              }
+            }
+          },
+          series: [{
+            name: 'Economic Families',
+            data: <%= @vec[4] %>
+          }, {
+            name: 'Unattached Individuals',
+            data: <%= @vec[26] %>
+          }]
+        })
+      })
+      </script>
+    </div>
+
+    <div id='econ2', class='right'>
+      <script>
+      $(document).ready(function() {
+        chart = new Highcharts.Chart({
+          chart: {
+            renderTo: 'econ2',
+            type: 'line'
+          },
+          title: {
+            text: 'Unattached Individuals Expanded'
+          },
+          subtitle: {
+            text: 'Source: <a href="http://open.canada.ca/data/en/dataset/5a0df591-72ca-4ad2-8e29-bda54f248b57">' +
+              'Canada Open Data'
+          },
+          xAxis: {
+            allowDecimals: false,
+            labels: {
+              formatter: function() {
+                return this.value + 2007;
+              }
+            }
+          },
+          yAxis: {
+            title: {
+              text: '2011 Canadian Dollars'
+            },
+            labels: {
+              formatter: function() {
+                return this.value;
+              }
+            }
+          },
+          tooltip: {
+            formatter: function() {
+              return this.series.name + ' earned $' + this.y + ' in ' + (this.x + 2007);
+            }
+          },
+          plotOptions: {
+            area: {
+              pointStart: 2007,
+              marker: {
+                symbol: 'circle',
+                radius: 2
+              }
+            }
+          },
+          series: [{
+            name: 'Elderly Male',
+            data: <%= @vec[27] %>
+          }, {
+            name: 'Elderly Female',
+            data: <%= @vec[30] %>
+          }, {
+            name: 'Non-elderly Male',
+            data: <%= @vec[33] %>
+          }, {
+            name: 'Non-elderly Female',
+            data: <%= @vec[36] %>
+          }]
+        })
+      })
+      </script>
+    </div>
+  </div>
+
+  <div>
+    <div id='econ3', class='left'>
+      <script>
+      $(document).ready(function() {
+        chart = new Highcharts.Chart({
+          chart: {
+            renderTo: 'econ3',
+            type: 'line'
+          },
+          title: {
+            text: 'Economic Families Expanded'
+          },
+          subtitle: {
+            text: 'Source: <a href="http://open.canada.ca/data/en/dataset/5a0df591-72ca-4ad2-8e29-bda54f248b57">' +
+              'Canada Open Data'
+          },
+          xAxis: {
+            allowDecimals: false,
+            labels: {
+              formatter: function() {
+                return this.value + 2007;
+              }
+            }
+          },
+          yAxis: {
+            title: {
+              text: '2011 Canadian Dollars'
+            },
+            labels: {
+              formatter: function() {
+                return this.value;
+              }
+            }
+          },
+          tooltip: {
+            formatter: function() {
+              return this.series.name + ' earned $' + this.y + ' in ' + (this.x + 2007);
+            }
+          },
+          plotOptions: {
+            area: {
+              pointStart: 2007,
+              marker: {
+                symbol: 'circle',
+                radius: 2
+              }
+            }
+          },
+          series: [{
+            name: 'Elderly Family',
+            data: <%= @vec[5] %>
+          }, {
+            name: 'Non-elderly Family',
+            data: <%= @vec[8] %>
+          }]
+        })
+      })
+      </script>
+    </div>
+
+    <div id='econ4', class='right'>
+      <script>
+      $(document).ready(function() {
+        chart = new Highcharts.Chart({
+          chart: {
+            renderTo: 'econ4',
+            type: 'line'
+          },
+          title: {
+            text: 'Non-elderly Families Expanded'
+          },
+          subtitle: {
+            text: 'Source: <a href="http://open.canada.ca/data/en/dataset/5a0df591-72ca-4ad2-8e29-bda54f248b57">' +
+              'Canada Open Data'
+          },
+          xAxis: {
+            allowDecimals: false,
+            labels: {
+              formatter: function() {
+                return this.value + 2007;
+              }
+            }
+          },
+          yAxis: {
+            title: {
+              text: '2011 Canadian Dollars'
+            },
+            labels: {
+              formatter: function() {
+                return this.value;
+              }
+            }
+          },
+          tooltip: {
+            formatter: function() {
+              return this.series.name + ' earned $' + this.y + ' in ' + (this.x + 2007);
+            }
+          },
+          plotOptions: {
+            area: {
+              pointStart: 2007,
+              marker: {
+                symbol: 'circle',
+                radius: 2
+              }
+            }
+          },
+          series: [{
+            name: 'Married Couple Only',
+            data: <%= @vec[9] %>
+          }, {
+            name: 'Two Parents with Cildren',
+            data: <%= @vec[13] %>
+          }, {
+            name: 'Married with Other Relatives',
+            data: <%= @vec[18] %>
+          }, {
+            name: 'Single Parent',
+            data: <%= @vec[19] %>
+          }, {
+            name: 'Other',
+            data: <%= @vec[24] %>
+          }]
+        })
+      })
+      </script>
+    </div>
+  </div>
   </body>
 </html>

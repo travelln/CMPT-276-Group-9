@@ -44,6 +44,19 @@ class StaticPagesController < ApplicationController
   end
 
   def economic
+    require 'csv'
+    csv_file = Rails.root.join('app', 'assets', 'families.csv')
+    @vec = Array.new
+    i = 0
+    CSV.foreach(csv_file, headers:true) do |row|
+      @vec.push(Array.new)
+      row.each do |_, val|
+        if val.to_f != 0.0
+          @vec[i] << val.delete(',').to_i
+        end
+      end
+      i += 1
+    end
   end
 
   def education
@@ -93,9 +106,7 @@ class StaticPagesController < ApplicationController
     CSV.foreach(csv_file, headers:true) do |row|
       @vec.push(Array.new)
       row.each do |_, val|
-        if val.to_f == 0.0
-          @vec[i] << val
-        else
+        if val.to_f != 0.0
           @vec[i] << val.delete(',').to_f
         end
       end
