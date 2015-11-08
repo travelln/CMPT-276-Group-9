@@ -10,7 +10,7 @@ class StaticPagesController < ApplicationController
 
   def crime
     require 'csv'
-    
+
     a=Rails.root.join('app', 'assets', 'Police personnel and selected crime statistics, Canada, provinces and territories.csv')
     @vec = Array.new
     i=0
@@ -44,26 +44,69 @@ class StaticPagesController < ApplicationController
   end
 
   def economic
+    require 'csv'
+    csv_file = Rails.root.join('app', 'assets', 'families.csv')
+    @vec = Array.new
+    i = 0
+    CSV.foreach(csv_file, headers:true) do |row|
+      @vec.push(Array.new)
+      row.each do |_, val|
+        if val.to_f != 0.0
+          @vec[i] << val.delete(',').to_i
+        end
+      end
+      i += 1
+    end
   end
 
   def education
   end
 
   def pollution
+    require 'csv'
+    csv_file = Rails.root.join('app', 'assets', 'pollution.csv')
+    @vec = Array.new
+    i = 0
+    CSV.foreach(csv_file, headers:true) do |row|
+      @vec.push(Array.new)
+      row.each do |_, val|
+        if val.to_f != 0.0
+          @vec[i] << val.to_f
+        end
+      end
+      i += 1
+    end
+    @sulfur = Array.new
+    @sulfur << 0
+    @nitrogen = Array.new
+    @nitrogen << 0
+    @voc = Array.new
+    @voc << 0
+    @ammonia = Array.new
+    @ammonia << 0
+    @carbon = Array.new
+    @carbon << 0
+    @fpm = Array.new
+    @fpm << 0
+    for i in 3..25
+      @sulfur << @vec[i][1]
+      @nitrogen << @vec[i][2]
+      @voc << @vec[i][3]
+      @ammonia << @vec[i][4]
+      @carbon << @vec[i][5]
+      @fpm << @vec[i][6]
+    end
   end
 
   def population
     require 'csv'
-    #require 'pathname' #Rails.root returns a Pathname object
     csv_file = Rails.root.join('app', 'assets', 'population.csv')
     @vec = Array.new
     i = 0
     CSV.foreach(csv_file, headers:true) do |row|
       @vec.push(Array.new)
-      row.each do |key, val|
-        if val.to_f == 0.0
-          @vec[i] << val
-        else
+      row.each do |_, val|
+        if val.to_f != 0.0
           @vec[i] << val.delete(',').to_f
         end
       end
