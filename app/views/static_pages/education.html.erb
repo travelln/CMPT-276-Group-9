@@ -1,10 +1,74 @@
-<% provide(:title, "Help") %>
+<% provide(:title, "Education") %>
 
-  <h1>My Canada App</h1>
+  <h1>Education</h1>
   <p>
     This is the education page for the
     <%= link_to 'My Canada', 'home' %>
     application.
   </p>
-  </body>
+
+
+<div id='education1', style='width:870px; height:710px'>
+  <script>
+  $(document).ready(function() {
+    chart = new Highcharts.Chart({
+      chart: {
+            renderTo: 'education1',
+            type: 'line',
+            plotBackgroundColor: '#CCFFFF'
+        },
+
+        title: {
+          text: 'Education Assistance Payments by Year($ million) '
+        },
+        subtitle: {
+          text: 'Source: <a href="http://http://open.canada.ca/data/en/dataset/bd043d94-ba24-4e88-8bc5-1d871e8c83ea">' +
+            'Canada Open Data'
+        },
+
+        xAxis: {
+            categories: [1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014]
+        },
+
+        series: [{
+            name: 'Payments',
+            data: [0.1, 1, 8, 40, 91, 159, 238, 326, 443, 563, 553, 582, 723, 757, 851, 1030, 1229]
+        }]
+    });
+  });
+</script>
+</div>
+
+<div id='education2', style='width:870px; height:710px'>
+  <script>
+  $(document).ready(function() {
+    chart = new Highcharts.Chart({
+      chart: {
+            renderTo: 'education2',
+            type: 'line',
+            plotBackgroundColor: '#CCFFFF'
+        },
+
+        title: {
+          text: 'Post-Secondary Education Withdrawals ($ million)'
+        },
+        subtitle: {
+          text: 'Source: <a href="http://http://open.canada.ca/data/en/dataset/bd043d94-ba24-4e88-8bc5-1d871e8c83ea">' +
+            'Canada Open Data'
+        },
+
+        xAxis: {
+            categories: [1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014]
+        },
+
+        series: [{
+            name: 'Withdrawals',
+            data: [0.2, 13, 38, 53, 145, 285, 402, 515, 651, 776, 886, 1009, 1246, 1389, 1581, 1733, 1814]
+        }]
+    });
+  });
+</script>
+</div>
+
+</body>
 </html>
