@@ -13,6 +13,17 @@
 
 ActiveRecord::Schema.define(version: 20151108052018) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "rectangles", force: :cascade do |t|
+    t.integer  "height"
+    t.integer  "width"
+    t.string   "colour"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
@@ -23,6 +34,6 @@ ActiveRecord::Schema.define(version: 20151108052018) do
     t.boolean  "admin",           default: false
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
 end

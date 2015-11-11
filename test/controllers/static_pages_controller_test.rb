@@ -31,4 +31,28 @@ class StaticPagesControllerTest < ActionController::TestCase
     assert_select "title", "Pollution | My Canada App"
   end
 
+  test "should get economic" do
+    get :economic
+    assert_response :success
+    assert_select "title", "Economic | My Canada App"
+  end
+
+  test "should get education" do
+    get :education
+    assert_response :success
+    assert_select "title", "Education | My Canada App"
+  end
+
+  test "should get crime" do
+    get :crime
+    assert_response :success
+    assert_select "title", "Crime | My Canada App"
+  end
+
+  test "should get weather" do
+    get :weather
+    assert_response :success
+    assert_select "title", "Weather | My Canada App"
+  end
+
 end
