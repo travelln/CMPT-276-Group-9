@@ -13,7 +13,7 @@
       chart = new Highcharts.Chart({
         chart: {
           renderTo: "weather1",
-          type:'pie'
+          type:'column'
         },
         title: {
           text: 'Total precipitation of capital and major cities'
@@ -21,6 +21,14 @@
         subtitle: {
           text: 'Source: <a href="http://open.canada.ca/data/en/dataset/81f6c8e6-ffee-4c20-8cbf-c06dc2b233e6">' +
             'Canada Open Data'
+        },
+        xAxis: {
+          categories: ['St.John\'s', 'Charlottetown', 'Halifax', 'Fredericton', 'Québec', 'Montréal', 'Ottawa', 'Toronto', 'Winnipeg', 'Regina', 'Edmonton', 'Calgary', 'Vancouver', 'Victoria', 'Whitehorse', 'Yellowknife']
+        },
+        yAxis: {
+          title: {
+            text: 'Precipitation (centimetres)'
+          }
         },
         tooltip: {
             pointFormat: '<b>{point.name}</b>: {point.y:.1f} mm.'
@@ -41,55 +49,7 @@
         series: [{
             name: 'Total precipitation',
             colorByPoint: true,
-            data: [{
-                name: 'St.John\'s',
-                y: 1513.7
-            }, {
-                name: 'Charlottetown',
-                y: 1173.3
-            }, {
-                name: 'Halifax',
-                y: 1452.2
-            }, {
-                name: 'Fredericton',
-                y: 1143.3
-            }, {
-                name: 'Québec',
-                y: 1230.3
-            }, {
-                name: 'Montréal',
-                y: 978.9
-            }, {
-                name: 'Ottawa',
-                y: 943.5
-            }, {
-                name: 'Toronto',
-                y: 792.7
-            }, {
-                name: 'Winnipeg',
-                y: 513.7
-            }, {
-                name: 'Regina',
-                y: 388.1
-            }, {
-                name: 'Edmonton',
-                y: 482.7
-            }, {
-                name: 'Calgary',
-                y: 412.6
-            }, {
-                name: 'Vancouver',
-                y: 1199
-            }, {
-                name: 'Victoria',
-                y: 883.3
-            }, {
-                name: 'Whitehorse',
-                y: 267.4
-            }, {
-                name: 'Yellowknife',
-                y: 280.7
-            }]
+            data: <%= @precipitation %>
         }]
 
 
@@ -120,6 +80,11 @@
         xAxis: {
           categories: ['St.John\'s', 'Charlottetown', 'Halifax', 'Fredericton', 'Québec', 'Montréal', 'Ottawa', 'Toronto', 'Winnipeg', 'Regina', 'Edmonton', 'Calgary', 'Vancouver', 'Victoria', 'Whitehorse', 'Yellowknife']
         },
+        yAxis: {
+          title: {
+            text: 'Snowfall (milimetres)'
+          }
+        },
 
         tooltip: {
           formatter: function () {
@@ -130,7 +95,7 @@
 
         series: [{
           name: 'Cities',
-          data: [215.6, 184.2, 171.2, 156.6, 181.9, 163.3, 162.6, 145.5, 123.5, 114.5, 124.1, 113.6, 166.1, 154.2, 122.2, 118.9]
+          data: <%= @snowfall %>
         }]
       });
     });
@@ -155,6 +120,12 @@
             xAxis: {
               categories: ['St.John\'s', 'Charlottetown', 'Halifax', 'Fredericton', 'Québec', 'Montréal', 'Ottawa', 'Toronto', 'Winnipeg', 'Regina', 'Edmonton', 'Calgary', 'Vancouver', 'Victoria', 'Whitehorse', 'Yellowknife']
             },
+            yAxis: {
+              title: {
+                text: 'days'
+              }
+            },
+
             legend: {
               layout: 'vertical',
               floating: true,
@@ -172,7 +143,7 @@
             },
             series: [{
               name: 'Cities',
-              data: [215.6, 184.2, 171.2, 156.6, 181.9, 163.3, 162.6, 145.5, 123.5, 114.5, 124.1, 113.6, 166.1, 154.2, 122.2, 118.9]
+              data: <%= @wetdays %>
             }]
           });
         });
