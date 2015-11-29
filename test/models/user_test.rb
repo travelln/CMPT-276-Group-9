@@ -85,7 +85,13 @@ class UserTest < ActiveSupport::TestCase
         assert_equal bothcase_email.downcase, @user.reload.email
       end
 
-
+      test "email should have valid format" do
+      	user = User.new(
+      		email: "invalidEmailFormat",
+      		password: "foobar"
+      	)
+      	assert user.invalid?
+      end
 
 
 
