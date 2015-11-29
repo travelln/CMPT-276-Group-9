@@ -49,6 +49,7 @@ config.assets.precompile += ['rollover.js', 'highcharts.js']
   # when problems arise.
   config.log_level = :debug
 
+   
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
 
