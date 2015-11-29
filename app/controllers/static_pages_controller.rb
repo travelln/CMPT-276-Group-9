@@ -1,3 +1,20 @@
+# Controllers for All Open Data Pages
+
+# This pages includes all controllers for the open data pages,
+# which are categorized in def crime and end
+#                          def economic and end
+#                          def education and end
+#                          def population and end
+#                          def pollution and end
+#                          def weather and end
+#Those controllers help doing necessary actions of inputing a file, and
+#creating corresponding variables for storing information of the file
+
+#Controllers for other pages may be also defined here,
+#and they help doing necessary actions before the pages are shown,
+
+
+
 class StaticPagesController < ApplicationController
   def home
   end
