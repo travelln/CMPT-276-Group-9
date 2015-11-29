@@ -26,18 +26,19 @@ class StaticPagesController < ApplicationController
   end
 
   def crime
-    require 'csv'
+    require 'csv' #require a csv file
 
+    #store the csv file(in assets folder) into a variable named a
     a=Rails.root.join('app', 'assets', 'Police personnel and selected crime statistics, Canada, provinces and territories.csv')
-    @vec = Array.new
+    @vec = Array.new #create a new array variable named vec
     i=0
     CSV.foreach(a, headers:true) do |row|
       @vec.push(Array.new)
-      row.each do |key, val|
-        if val.to_f == 0.0
-          @vec[i] << val
+      row.each do |key, val| #go through each row of the csv file(stored in a)
+        if val.to_f == 0.0 #if the type of the value is float
+          @vec[i] << val #store the value into the array variable :vec
         else
-          @vec[i] << val.delete(',').to_f
+          @vec[i] << val.delete(',').to_f # sometimes a variable like 100,200 is stored in one grid, so delete the ','
         end
       end
       i += 1
