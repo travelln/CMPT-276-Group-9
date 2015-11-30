@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem 'will_paginate'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 
@@ -12,6 +12,7 @@ gem 'highcharts'
 
 # For designing layouts
 gem 'bootstrap-sass', '3.2.0.0'
+#  gem "pg"
 # Use sqlite3 as the database for Active Record
 group :production, :staging do
   gem "pg"

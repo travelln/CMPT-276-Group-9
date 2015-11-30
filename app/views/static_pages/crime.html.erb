@@ -1,25 +1,52 @@
-<% provide(:title, "Crime") %>
-<h1>Crime</h1>
+<!--Name:Crime page -->
 
+<!--Purpose:
+  to show three kinds of information about Crime:
+  1.Actual offences of all crime ,by provinces in Canada in 2000, in bar chart form
+  2.Actual offences of all crime ,by types in Canada in 2000, in pie chart form.
+  3.The number of police in Canada, from 1986-2014, in line chart formatter
+-->
+
+<!--Description:
+  Because bar chart is good at showing the differences between categories, so I use it in the
+  first data presenting. However, the second one has too many catagories, so I use pie chart
+  in which each type of crime can be shown up to a user without taking too much space on the page.
+  For the third data presenting, it is important to see a changing trend of four kinds of police
+  throuhgout a long period, so I use line chart, in which the user can not only see the trend of
+  each kind of police through the period, but also compare them in a whole view.
+
+  in each of the charts, users can move mouse into the bar, the sector or the dot to clearly see
+  the value of it. If users want to see where the original data comes from, they can click the
+  Source button below the title.
+
+  They can also downloads each graph by clicking the right corner button.
+-->
+
+<% provide(:title, "Crime") %>
+
+
+
+<h1>Crime</h1>
+<!-- create a space for the chart -->
 <div id='crime1', style='width:1080px; height:720px'>
-  <script>
+  <script>   //create a chart by using the highchart API
   $(document).ready(function() {chart = new Highcharts.Chart({
             chart:
-            {
+            { //where does the chart render to  and chart type
               renderTo: 'crime1',
               type: 'bar'
             },
             title:
-            {
+            {//the chart title
               text: 'Actual offences,by provinces, Canada, 2000'
             },
             subtitle:
-            {
+            {//the chart sub title
               text: 'Source: <a href="http://open.canada.ca/data/en/dataset/03cf7d5a-f524-4af6-84f4-221a69bc71cb">' +
                 'Canada Open Data'
             },
             xAxis:
-            {
+            {//xAxis categories
               categories:
               [             'Newfoundland and Labrador',
                             'Prince Edward Island',
@@ -37,20 +64,20 @@
               ]
             },
             tooltip:
-            {
+            {//when moving mouse to a bar, show correspoding information
               formatter: function ()
               {return  this.x + ': ' + this.y +' offences';}
             },
             series:
-            [{
+            [{//import data from csv to this chart
                 name: 'Actual offences,by provinces, Canada, 2000',
                 <% temp = Array.new %>
-                <% for i in 0..(ENV['TIMES'] ? ENV['TIMES'].to_i : 13269) do %>
+                <% for i in 0..(ENV['TIMES'] ? ENV['TIMES'].to_i : 13269) do %>//for loop to go through each line
                   <% if @vec3[i][0]==2000 && @vec3[i][2]=='All offences, total' && @vec3[i][1]!='Canada'  %>
-                    <% temp.push(@vec3[i][5])             %>
+                    <% temp.push(@vec3[i][5])             %>//if the line contains wanted data,push the data into temp array
                   <% end %>
                 <% end %>
-                data: <%= temp %>
+                data: <%= temp %>//After pushing all needed information into the array, use the array as input data into the chart
             }]
 
   });});
@@ -90,8 +117,8 @@
             series:
             [{
                 colorByPoint: true,
-                data:
-                [
+                data://find all neede data in the csv, and input them as data to the chart
+                [    //vec3 is a matrix variable, the first parameter is the row #, second is the column #
                   {
                     name: 'Crimes of violence',
                     y: <%= @vec3[116][5] %>
@@ -204,7 +231,7 @@
                 {
                     labels: {
                         formatter: function() {
-                            return this.value + 1986 ; // clean, unformatted number for year
+                            return this.value + 1986 ; // clean, unformatted number for year 1986
                         }
                     }
                 },
@@ -214,20 +241,20 @@
                     },
                     labels: {
                         formatter: function() {
-                            return this.value / 1000 + 'k';
+                            return this.value / 1000 + 'k';//use k can save space
                         }
                     }
                 },
                 tooltip: {
                     formatter: function() {
                       return this.series.name   + ' in ' + (this.x + 1986) + ' is ' + this.y;
-
+                        //show related information when moving mouse to a dot
                     }
                 },
 
                 series: [
 
-                {
+                {//need information row 1 to row 28(all at column 5)
                         name: 'Total number of all personnel',
                         <% temp = Array.new %>
                         <% for i in 0..(ENV['TIMES'] ? ENV['TIMES'].to_i : 28) do %>
@@ -235,7 +262,7 @@
                         <% end %>
                         data: <%= temp %>
                 },
-                {
+                {//need information row 29 to row 57(all at column 5)
                         name: 'Total number of police officers',
                         <% temp = Array.new %>
                         <% for i in 29..(ENV['TIMES'] ? ENV['TIMES'].to_i : 57) do %>
@@ -243,7 +270,7 @@
                         <% end %>
                         data: <%= temp %>
                 },
-                {
+                {//need information row 116 to row 144(all at column 5)
                         name: 'Total number of civilian and other personnel',
                         <% temp = Array.new %>
                         <% for i in 116..(ENV['TIMES'] ? ENV['TIMES'].to_i : 144) do %>
@@ -251,7 +278,7 @@
                         <% end %>
                         data: <%= temp %>
                 },
-                {
+                {//need information row 228 to row 255(all at column 5)
                         name: 'Total number of Authorized police officer strength',
                         <% temp = Array.new %>
                         <% for i in 228..(ENV['TIMES'] ? ENV['TIMES'].to_i : 255) do %>
@@ -259,7 +286,7 @@
                         <% end %>
                         data: <%= temp %>
                 }
-
+                //After importing all information, the graph will generate 4 lines according to them
                 ]
       });});
 </script>
