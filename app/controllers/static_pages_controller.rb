@@ -17,7 +17,7 @@
 
 class StaticPagesController < ApplicationController
   def home
-  
+
 
   end
 
@@ -65,13 +65,17 @@ class StaticPagesController < ApplicationController
 
   def economic
     require 'csv'
+    # location of csv
     csv_file = Rails.root.join('app', 'assets', 'families.csv')
     @vec = Array.new
     i = 0
+    # parse file line by line
     CSV.foreach(csv_file, headers:true) do |row|
       @vec.push(Array.new)
       row.each do |_, val|
+        # .to_f() returns 0.0 on failure
         if val.to_f != 0.0
+          # .to_f() has difficulties with commas
           @vec[i] << val.delete(',').to_i
         end
       end
@@ -97,18 +101,24 @@ class StaticPagesController < ApplicationController
 
   def pollution
     require 'csv'
+    # location of csv file
     csv_file = Rails.root.join('app', 'assets', 'pollution.csv')
     @vec = Array.new
     i = 0
+    # parse line by line; functionally remove the first line
     CSV.foreach(csv_file, headers:true) do |row|
+      # new line, new array
       @vec.push(Array.new)
+      # ignore the key
       row.each do |_, val|
+        # .to_f() returns 0.0 on failure
         if val.to_f != 0.0
           @vec[i] << val.to_f
         end
       end
       i += 1
     end
+    # create arrays to hold columns, adding zero because we ignored it the first time
     @sulfur = Array.new
     @sulfur << 0
     @nitrogen = Array.new
@@ -121,30 +131,45 @@ class StaticPagesController < ApplicationController
     @carbon << 0
     @fpm = Array.new
     @fpm << 0
+    # the useful data is in these rows
     for i in 3..25
+      # index 1 is always sulfur
       @sulfur << @vec[i][1]
+      # index 2 is always nitrogen
       @nitrogen << @vec[i][2]
+      # index 3 is always volatile organic compounds
       @voc << @vec[i][3]
+      # index 4 is always ammonia
       @ammonia << @vec[i][4]
+      # index 5 is always carbon monoxide
       @carbon << @vec[i][5]
+      # index 6 is always fine particulate matter
       @fpm << @vec[i][6]
     end
   end
 
   def population
     require 'csv'
+    # location of csv file
     csv_file = Rails.root.join('app', 'assets', 'population.csv')
+    # array of arrays storing the csv
     @vec = Array.new
     i = 0
+    # operate line by line; headers are not actually there, but this makes the result smaller
     CSV.foreach(csv_file, headers:true) do |row|
+      # new row, new internal array
       @vec.push(Array.new)
+      # ignore the key, it would be useless anyway
       row.each do |_, val|
+        # .to_f() returns 0.0 if the conversion fails
         if val.to_f != 0.0
+          # .to_f doesn't know how to work with commas, but would return nonzero if it was there
           @vec[i] << val.delete(',').to_f
         end
       end
       i += 1
     end
+    # @vec now has all the relevant information from the csv
   end
 
   def weather
