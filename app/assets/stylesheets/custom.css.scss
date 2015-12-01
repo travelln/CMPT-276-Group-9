@@ -9,29 +9,32 @@ body {
   float: left;
   margin-right: 1px;
 */
-
+overflow:auto;
 }
 .parent {
   display: table;
   width: 100%;
+  overflow:auto;
 }
 .child1 {
   display: table-cell;
   width: 30%; /* adjust */
     float: left;
+    overflow:auto;
 }
 .child2 {
   display: table-cell;
   width: 30%; /* adjust */
     float: left;
     margin-left: 50px;
+    overflow:auto;
 }
 
 .child3 {
   display: table-cell;
   width: 30%; /* adjust */
     float: right;
-    
+    overflow:auto;
 }
 #fbFeed{
     float: left;
@@ -77,6 +80,7 @@ h1 {
   background-color:red;
   background-image: none;
   background-repeat: no-repeat;
+  overflow:auto;
  }
 
 .dropdown:hover{
