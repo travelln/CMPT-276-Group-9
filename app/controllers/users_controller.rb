@@ -9,12 +9,12 @@ class UsersController < ApplicationController
 
 rss = RSS::Parser.parse('http://www.cbc.ca/cmlink/rss-topstories', false)
 
-case rss.feed_type
-  when 'rss'
-    rss.items.each { |item| puts item.title }
-  when 'atom'
-    rss.items.each { |item| puts item.title.content }
-end
+#case rss.feed_type
+#  when 'rss'
+#    rss.items.each { |item| puts item.title }
+#  when 'atom'
+#    rss.items.each { |item| puts item.title.content }
+#end
 
   end
 
