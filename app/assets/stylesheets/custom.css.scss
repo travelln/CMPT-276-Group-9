@@ -14,13 +14,17 @@ overflow:auto;
 .parent {
   display: table;
   width: 100%;
-  overflow:auto;
+
 }
 .child1 {
   display: table-cell;
-  width: 30%; /* adjust */
+  width: 32%; /* adjust */
     float: left;
-    overflow:auto;
+    overflow:hidden;
+
+
+
+
 }
 .child2 {
   display: table-cell;
