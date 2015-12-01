@@ -38,7 +38,7 @@
             },
             title:
             {//the chart title
-              text: 'Actual offences,by provinces, Canada, 2000'
+              text: 'Actual Offences by Province (Canada 2000)'
             },
             subtitle:
             {//the chart sub title
@@ -70,7 +70,7 @@
             },
             series:
             [{//import data from csv to this chart
-                name: 'Actual offences,by provinces, Canada, 2000',
+                name: 'Actual Offences by Province (Canada 2000)',
                 <% temp = Array.new %>
                 <% for i in 0..(ENV['TIMES'] ? ENV['TIMES'].to_i : 13269) do %>//for loop to go through each line
                   <% if @vec3[i][0]==2000 && @vec3[i][2]=='All offences, total' && @vec3[i][1]!='Canada'  %>
@@ -103,7 +103,7 @@
             },
             title:
             {
-              text: 'Actual offences,by types, Canada, 2000'
+              text: 'Actual Offences by Type (Canada 2000)'
             },
             subtitle:
             {
@@ -220,7 +220,7 @@
                 },
                 title:
                 {
-                    text: 'Number of police in Canada from 1986 - 2014'
+                    text: 'Number of Police in Canada (From 1986 - 2014)'
                 },
                 subtitle:
                 {
