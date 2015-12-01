@@ -5,8 +5,42 @@
 /* universal */
 body {
   padding-top: 60px;
+  /*margin-left: 1px;
+  float: left;
+  margin-right: 1px;
+*/
 
 }
+.parent {
+  display: table;
+  width: 100%;
+}
+.child1 {
+  display: table-cell;
+  width: 30%; /* adjust */
+    float: left;
+}
+.child2 {
+  display: table-cell;
+  width: 30%; /* adjust */
+    float: left;
+    margin-left: 50px;
+}
+
+.child3 {
+  display: table-cell;
+  width: 30%; /* adjust */
+    float: right;
+    
+}
+#fbFeed{
+    float: left;
+    margin-right: 40px;
+}
+#feedgrab{
+   float: left;
+}
+
 section {
   overflow: auto;
 }
