@@ -13,12 +13,21 @@
 
 * Sign up and create a new user account:
 
-<img src="https://github.com/travelln/MyCanada-App/blob/master/app/assets/images/sign%20up.png" width="420">
+    <img src="https://github.com/travelln/MyCanada-App/blob/master/app/assets/images/sign%20up.png" width="420">
 
 * Enter registration information:
 
-<img src="https://github.com/travelln/MyCanada-App/blob/master/app/assets/images/register.PNG" width="420">
+    <img src="https://github.com/travelln/MyCanada-App/blob/master/app/assets/images/register.PNG" width="420">
 
 * Successfull login will show the homepage:
 
-<img src="https://github.com/travelln/MyCanada-App/blob/master/app/assets/images/homepage.png" width="420">
+    <img src="https://github.com/travelln/MyCanada-App/blob/master/app/assets/images/homepage.png" width="620">
+    
+* Select the "Open Data" option from the top menu:
+
+    <img src="https://github.com/travelln/MyCanada-App/blob/master/app/assets/images/menu.png" width="420">
+    
+* Select one of the data categories to view visualizations:
+
+    <img src="https://github.com/travelln/MyCanada-App/blob/master/app/assets/images/graph%20-%20weather.png" width="420">
+    
