@@ -3,7 +3,7 @@
 
 # MyCanada App
 
-* Combines Government of Canada Open Data portal and Highcharts API to visulaize statistical data. 
+* Combines Government of Canada Open Data portal and Highcharts API to visualize statistical data. 
 * [Open Data Link](http://open.canada.ca/en/open-data)
 * Homepage aggregates top Canadian news in a rotating feed and also shows social media feeds and weather forecast.
 * Designed with Ruby on Rails and hosted on Heroku.
@@ -23,7 +23,7 @@
 
     <img src="https://github.com/travelln/MyCanada-App/blob/master/app/assets/images/register.PNG" width="420">
 
-* Successfull login will show the homepage:
+* Successful login will show the homepage:
 
     <img src="https://github.com/travelln/MyCanada-App/blob/master/app/assets/images/homepage.png" width="620">
     
