@@ -31,3 +31,6 @@
 
     <img src="https://github.com/travelln/MyCanada-App/blob/master/app/assets/images/graph%20-%20weather.png" width="420">
     
+    
+    <img src="https://github.com/travelln/MyCanada-App/blob/master/app/assets/images/graph%20-%20crime.png" width="420">
+    
