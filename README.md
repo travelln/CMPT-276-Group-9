@@ -4,13 +4,14 @@
 # MyCanada App
 
 * Combines Government of Canada Open Data portal and Highcharts API to visulaize statistical data. 
-* ![Open Data Link](http://open.canada.ca/en/open-data)
+* [Open Data Link](http://open.canada.ca/en/open-data)
 * Homepage aggregates top Canadian news in a rotating feed and also shows social media feeds and weather forecast.
 * Designed with Ruby on Rails and hosted on Heroku.
 
 ![Project Development Documentation](https://github.com/travelln/MyCanada-App/blob/master/iteration%203.pdf)
 
 [Live Webpage Deployment on Heroku](https://secret-garden-3861.herokuapp.com/)
+<a href="https://secret-garden-3861.herokuapp.com/" target="_blank">example</a>
 
 *Usage Example:*
 
