@@ -5,7 +5,8 @@
 
 * Combines Government of Canada Open Data portal and Highcharts API to visulaize statistical data. 
 * ![Open Data Link](http://open.canada.ca/en/open-data)
-* Designed with Ruby on Rails
+* Homepage aggregates top Canadian news in a rotating feed and also shows social media feeds and weather forecast.
+* Designed with Ruby on Rails and hosted on Heroku.
 
 ![Project Development Documentation](https://github.com/travelln/MyCanada-App/blob/master/iteration%203.pdf)
 
