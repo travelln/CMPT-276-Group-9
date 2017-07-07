@@ -13,8 +13,12 @@
 
 * Sign up and create a new user account:
 
-<img src="https://github.com/travelln/MyCanada-App/blob/master/app/assets/images/image.png" width="220">
+<img src="https://github.com/travelln/MyCanada-App/blob/master/app/assets/images/sign%20up.png" width="220">
 
-* Sign up and create a new user account:
+* Enter registration information:
 
-<img src="https://github.com/travelln/MyCanada-App/blob/master/app/assets/images/image.png" width="220">
+<img src="https://github.com/travelln/MyCanada-App/blob/master/app/assets/images/register.png" width="220">
+
+* Successfull login will show the homepage:
+
+<img src="https://github.com/travelln/MyCanada-App/blob/master/app/assets/images/homepage.png" width="220">
