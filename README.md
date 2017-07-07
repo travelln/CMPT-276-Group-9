@@ -13,8 +13,6 @@
 [Live Webpage Deployment on Heroku](https://secret-garden-3861.herokuapp.com/)
 
 
-<a href="https://secret-garden-3861.herokuapp.com/" target="_blank">example</a>
-
 *Usage Example:*
 
 * Sign up and create a new user account:
