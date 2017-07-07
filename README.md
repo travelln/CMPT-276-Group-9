@@ -10,7 +10,7 @@
 
 ![Project Development Documentation](https://github.com/travelln/MyCanada-App/blob/master/iteration%203.pdf)
 
-![Live Webpage Deployment on Heroku](https://secret-garden-3861.herokuapp.com/)
+[Live Webpage Deployment on Heroku](https://secret-garden-3861.herokuapp.com/)
 
 *Usage Example:*
 
