@@ -17,7 +17,7 @@
 
 * Enter registration information:
 
-<img src="https://github.com/travelln/MyCanada-App/blob/master/app/assets/images/register.png" width="220">
+<img src="https://github.com/travelln/MyCanada-App/blob/master/app/assets/images/register.PNG" width="220">
 
 * Successfull login will show the homepage:
 
