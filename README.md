@@ -8,3 +8,9 @@
 * Designed with Ruby on Rails
 
 ![Project Development Documentation](https://github.com/travelln/MyCanada-App/blob/master/iteration%203.pdf)
+
+*Usage Example:*
+
+* Sign up and create a new user account:
+
+<img src="https://github.com/travelln/MyCanada-App/blob/master/app/assets/images/image.png" width="220">
