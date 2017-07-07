@@ -14,3 +14,7 @@
 * Sign up and create a new user account:
 
 <img src="https://github.com/travelln/MyCanada-App/blob/master/app/assets/images/image.png" width="220">
+
+* Sign up and create a new user account:
+
+<img src="https://github.com/travelln/MyCanada-App/blob/master/app/assets/images/image.png" width="220">
